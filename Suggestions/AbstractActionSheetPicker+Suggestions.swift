@@ -1,9 +1,12 @@
 import Foundation
 import ActionSheetPicker_3_0
 
+
+typealias ActionSuggestionDoneBlock = (AbstractActionSheetPicker, Int, String) -> Void
+
 extension AbstractActionSheetPicker {
 
-  func addSuggestions(values: [String]) {
+  func addSuggestions(values: [String], doneBlock: ActionSuggestionDoneBlock) {
 
     guard let bgView = actionSheet?.bgView else {
       print("Call .show() first: Suggestions can be added after picker is shown.")
@@ -33,6 +36,9 @@ extension AbstractActionSheetPicker {
       button.setTitleColor(.red, for: .normal)
       button.backgroundColor = .lightGray
       button.addTarget(self, action: #selector(suggestionTapped(_ :)), for: .touchUpInside)
+
+      // test doneBlock
+      doneBlock(self, idx, title)
 
       bgView.addSubview(button)
     }
