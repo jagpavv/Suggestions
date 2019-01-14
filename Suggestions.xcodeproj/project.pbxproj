@@ -13,6 +13,7 @@
 		ACA9FB6921EBD7C1008AD14A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA9FB6721EBD7C1008AD14A /* Main.storyboard */; };
 		ACA9FB6B21EBD7C2008AD14A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACA9FB6A21EBD7C2008AD14A /* Assets.xcassets */; };
 		ACA9FB6E21EBD7C2008AD14A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA9FB6C21EBD7C2008AD14A /* LaunchScreen.storyboard */; };
+		ACA9FB7621EC9528008AD14A /* AbstractActionSheetPicker+Suggestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA9FB7521EC9528008AD14A /* AbstractActionSheetPicker+Suggestions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		ACA9FB6A21EBD7C2008AD14A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACA9FB6D21EBD7C2008AD14A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACA9FB6F21EBD7C2008AD14A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACA9FB7521EC9528008AD14A /* AbstractActionSheetPicker+Suggestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AbstractActionSheetPicker+Suggestions.swift"; sourceTree = "<group>"; };
 		EFBD442EE87C2F85C325DD9F /* Pods-Suggestions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Suggestions.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Suggestions/Pods-Suggestions.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +80,7 @@
 		ACA9FB6221EBD7C1008AD14A /* Suggestions */ = {
 			isa = PBXGroup;
 			children = (
+				ACA9FB7521EC9528008AD14A /* AbstractActionSheetPicker+Suggestions.swift */,
 				ACA9FB6321EBD7C1008AD14A /* AppDelegate.swift */,
 				ACA9FB6521EBD7C1008AD14A /* ViewController.swift */,
 				ACA9FB6721EBD7C1008AD14A /* Main.storyboard */,
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACA9FB6621EBD7C1008AD14A /* ViewController.swift in Sources */,
+				ACA9FB7621EC9528008AD14A /* AbstractActionSheetPicker+Suggestions.swift in Sources */,
 				ACA9FB6421EBD7C1008AD14A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
