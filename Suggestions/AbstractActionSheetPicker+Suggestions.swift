@@ -53,6 +53,7 @@ extension AbstractActionSheetPicker {
       button.backgroundColor = .lightGray
       button.suggestionSelected {
         doneBlock(self, idx, title)
+        self.hideWithCancelAction()
       }
 
       bgView.addSubview(button)
