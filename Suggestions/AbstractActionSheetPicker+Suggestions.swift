@@ -2,11 +2,27 @@ import Foundation
 import ActionSheetPicker_3_0
 
 
+// MARK:- SuggestionButton
+//https://stackoverflow.com/questions/37903243/swift-programmatically-create-function-for-button-with-a-closure
+class SuggestionButton: UIButton {
+  var action: (() -> Void)?
+
+  func suggestionSelected(action: @escaping () -> Void) {
+    self.action = action
+    self.addTarget(self, action: #selector(clicked(_ :)), for: .touchUpInside)
+  }
+
+  @objc func clicked(_ sender: SuggestionButton) {
+    action?()
+  }
+}
+
+// MARK:- AbstractActionSheetPicker+Suggestions
 typealias ActionSuggestionDoneBlock = (AbstractActionSheetPicker, Int, String) -> Void
 
 extension AbstractActionSheetPicker {
 
-  func addSuggestions(values: [String], doneBlock: ActionSuggestionDoneBlock) {
+  func addSuggestions(values: [String], doneBlock: @escaping ActionSuggestionDoneBlock) {
 
     guard let bgView = actionSheet?.bgView else {
       print("Call .show() first: Suggestions can be added after picker is shown.")
@@ -31,21 +47,16 @@ extension AbstractActionSheetPicker {
       let x = (CGFloat(idx) * (buttonWidth + pad)) + pad
       let y = CGFloat(0)
 
-      let button = UIButton(frame: CGRect(x: x, y: y, width: buttonWidth, height: buttonHeight))
+      let button = SuggestionButton(frame: CGRect(x: x, y: y, width: buttonWidth, height: buttonHeight))
       button.setTitle(title, for: .normal)
       button.setTitleColor(.red, for: .normal)
       button.backgroundColor = .lightGray
-      button.addTarget(self, action: #selector(suggestionTapped(_ :)), for: .touchUpInside)
-
-      // test doneBlock
-      doneBlock(self, idx, title)
+      button.suggestionSelected {
+        doneBlock(self, idx, title)
+      }
 
       bgView.addSubview(button)
     }
 
-  }
-
-  @objc func suggestionTapped(_ sender: UIButton) {
-    print("tapped")
   }
 }
